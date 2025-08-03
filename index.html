@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional web and mobile app development services. Custom software solutions, business websites, POS systems, and mobile applications built with modern technologies.">
+    <meta name="keywords" content="web development, mobile app development, software development startup, React, Flutter, PHP, custom software, business websites">
+    <meta name="author" content="RJ45  ">
+    <title>DevStudio - Professional Web & Mobile App Development Services</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="RJ45 - Professional Software Development">
+    <meta property="og:description" content="Transform your ideas into powerful web and mobile applications with our expert development team.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --accent-color: #06b6d4;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --border-color: #374151;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-primary);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>')
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .mission-vision {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-vision:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-vision h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .founders {
+            margin-top: 4rem;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .founder-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .founder-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--bg-secondary);
+        }
+
+        .product-demos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .demo-card {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-mockup {
+            height: 300px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .demo-mockup::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+        }
+
+        .demo-content {
+            padding: 2rem;
+        }
+
+        .demo-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--bg-secondary);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-methods {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .contact-methods li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-methods li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-methods a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-methods a:hover {
+            text-decoration: underline;
+        }
+
+        .price-note {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-demos {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">RJ45 NEST</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Ideas into Digital Reality</h1>
+                <p>Professional web and mobile app development services that bring your vision to life with cutting-edge technology and innovative solutions.</p>
+                <a href="#contact" class="cta-button">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About RJ45</h2>
+                <p>We are passionate developers dedicated to creating exceptional digital experiences that drive business growth and user engagement.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="mission-vision">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To empower businesses and entrepreneurs by transforming their innovative ideas into powerful, scalable, and user-friendly digital solutions that drive success in today's competitive market.</p>
+                </div>
+                <div class="mission-vision">
+                    <h3>🚀 Our Vision</h3>
+                    <p>To become the leading software development partner known for delivering exceptional quality, innovative solutions, and outstanding customer service that exceeds expectations.</p>
+                </div>
+            </div>
+
+            <div class="founders">
+                <div class="section-header">
+                    <h3>Meet Our Founders</h3>
+                    <p>The passionate developers behind RJ45</p>
+                </div>
+                <div class="founders-grid">
+                    <div class="founder-card">
+                        <div class="founder-avatar">AD</div>
+                        <h4>Ryan Developer</h4>
+                        <p>Co-Founder & Lead Developer</p>
+                        <p>Full-stack developer with expertise in React, Flutter, and modern web technologies. Passionate about creating seamless user experiences.</p>
+                    </div>
+                    <div class="founder-card">
+                        <div class="founder-avatar">JD</div>
+                        <h4>Jodel Developer</h4>
+                        <p>Co-Founder & Technical Architect</p>
+                        <p>Frontend specialist with deep knowledge in CSS, web design, and system architecture. Focused on building responsive and user-friendly websites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Technology Stack</h2>
+                <p>We leverage the latest technologies to build robust, scalable, and modern applications</p>
+            </div>
+            
+            <div class="tech-stack-grid">
+                <div class="tech-category">
+                    <h3>🌐 Frontend Development</h3>
+                    <p>Creating engaging and responsive user interfaces</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>⚙️ Backend Development</h3>
+                    <p>Building powerful server-side applications</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>📱 Mobile Development</h3>
+                    <p>Cross-platform mobile applications</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">iOS</span>
+                        <span class="tech-tag">Android</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>🗄️ Database & Backend Services</h3>
+                    <p>Reliable data storage and management</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Explore our demo applications showcasing our development capabilities</p>
+            </div>
+            
+            <div class="product-demos">
+                <div class="demo-card">
+                    <div class="demo-mockup">
+                        💻
+                    </div>
+                    <div class="demo-content">
+                        <h3>Web Application Demo</h3>
+                        <p>Interactive web application built with React and modern web technologies. Features responsive design, dynamic content, and seamless user experience.</p>
+                        <ul style="margin-top: 1rem; padding-left: 1rem;">
+                            <li>Responsive Design</li>
+                            <li>Real-time Updates</li>
+                            <li>User Authentication</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="demo-mockup">
+                        📱
+                    </div>
+                    <div class="demo-content">
+                        <h3>Mobile App Demo</h3>
+                        <p>Cross-platform mobile application developed with Flutter. Showcases native performance with beautiful UI and smooth animations.</p>
+                        <ul style="margin-top: 1rem; padding-left: 1rem;">
+                            <li>Cross-platform Compatibility</li>
+                            <li>Native Performance</li>
+                            <li>Offline Capabilities</li>
+                            <li>Push Notifications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Pricing</h2>
+                <p>Transparent pricing for quality software development services</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Landing Page</h3>
+                    <div class="price">₱3,000 - ₱5,000</div>
+                    <ul class="price-features">
+                        <li>Responsive Design</li>
+                        <li>SEO Optimized</li>
+                        <li>Contact Forms</li>
+                        <li>Basic Analytics</li>
+                        <li>Mobile Friendly</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Business Website</h3>
+                    <div class="price">₱8,000 - ₱20,000</div>
+                    <ul class="price-features">
+                        <li>POS System Integration</li>
+                        <li>Inventory Management</li>
+                        <li>Appointment Booking</li>
+                        <li>Attendance Checker</li>
+                        <li>Admin Dashboard</li>
+                        <li>Database Integration</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Custom Complex Solution</h3>
+                    <div class="price">₱20,000+</div>
+                    <ul class="price-features">
+                        <li>Custom Development</li>
+                        <li>Advanced Features</li>
+                        <li>Third-party Integrations</li>
+                        <li>Scalable Architecture</li>
+                        <li>Ongoing Support</li>
+                        <li>Enterprise Solutions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="price-note">
+                <strong>Note:</strong> Prices may change and vary depending on the complexity of the project. Contact us for a detailed quote based on your specific requirements.
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Reviews</h2>
+                <p>What our satisfied clients say about our services</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"DevStudio transformed our business with an amazing POS system. The team was professional, responsive, and delivered exactly what we needed. Highly recommended!"</p>
+                    <div class="reviewer">- Maria Santos, Restaurant Owner</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The mobile app they developed for our company exceeded our expectations. User-friendly, fast, and beautifully designed. Great work from the DevStudio team!"</p>
+                    <div class="reviewer">- John Cruz, Tech Startup CEO</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Professional service from start to finish. They delivered our inventory management system on time and within budget. The support has been excellent too."</p>
+                    <div class="reviewer">- Lisa Reyes, Retail Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your project? We'd love to hear from you!</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Type</label>
+                            <select id="project" name="project" required style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--bg-primary); color: var(--text-primary); font-size: 1rem;">
+                                <option value="">Select Project Type</option>
+                                <option value="landing-page">Landing Page</option>
+                                <option value="business-website">Business Website</option>
+                                <option value="mobile-app">Mobile App</option>
+                                <option value="custom-solution">Custom Solution</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" name="budget" style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 10px; background: var(--bg-primary); color: var(--text-primary); font-size: 1rem;">
+                                <option value="">Select Budget Range</option>
+                                <option value="3000-5000">₱3,000 - ₱5,000</option>
+                                <option value="8000-20000">₱8,000 - ₱20,000</option>
+                                <option value="20000+">₱20,000+</option>
+                                <option value="discuss">Let's Discuss</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Description</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Reach out to us through any of the following channels. We respond within 24 hours!</p>
+                    
+                    <ul class="contact-methods">
+                        <li>
+                            <span>📧</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:rj45official@gmail.com">rj45official@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>📱</span>
+                            <div>
+                                <strong>Phone/WhatsApp:</strong><br>
+                                <a href="tel:+639123456789">+63 912 345 6789</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>💬</span>
+                            <div>
+                                <strong>Telegram:</strong><br>
+                                <a href="https://t.me/rj45official" target="_blank">@rj45official</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>💼</span>
+                            <div>
+                                <strong>LinkedIn:</strong><br>
+                                <a href="https://linkedin.com/company/rj45official-ph" target="_blank">RJ45 Philippines</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>🐙</span>
+                            <div>
+                                <strong>GitHub:</strong><br>
+                                <a href="https://github.com/rj45official-ph" target="_blank">github.com/rj45official-ph</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>📍</span>
+                            <div>
+                                <strong>Location:</strong><br>
+                                Angeles City, Central Luzon, Philippines
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-secondary); border-radius: 10px;">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Business Hours</h4>
+                        <p><strong>Monday - Friday:</strong> 9:00 AM - 10:00 PM</p>
+                        <p><strong>Saturday:</strong> 10:00 AM - 8:00 PM</p>
+                        <p><strong>Sunday:</strong> By Appointment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RJ45. All rights reserved. | Transforming ideas into digital reality.</p>
+            <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                Built with ❤️ in Angeles City, Philippines
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌙';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message (in a real app, you'd send this to a server)
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--bg-primary)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTheme();
+            
+            // Add animation styles to sections
+            const sections = document.querySelectorAll('section:not(.hero)');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Add animation to cards
+            const cards = document.querySelectorAll('.mission-vision, .founder-card, .tech-category, .demo-card, .pricing-card, .review-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Typing effect for hero section
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
+        });
+
+        // Add floating animation to pricing cards
+        function addFloatingAnimation() {
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.style.animation = 'float 6s ease-in-out infinite';
+            });
+        }
+
+        // Add CSS animation for floating effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Call floating animation
+        document.addEventListener('DOMContentLoaded', addFloatingAnimation);
+    </script>
+</body>
+</html>
